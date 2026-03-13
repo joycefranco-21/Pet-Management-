@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Management | Daily Care Tasks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Pet Management 🐈</p>
+          <h1>Daily care tasks that stay clear, calm, and easy to finish.</h1>
+          <p class="hero__text">
+            Start the day with the essential routines for your pets, track what
+            is still pending, and keep care consistent without digging through
+            cluttered screens.
+          </p>
+          <div class="hero__meta">
+            <div class="meta-card">
+              <span class="meta-card__label">Today</span>
+              <strong id="todayLabel"></strong>
+            </div>
+            <div class="meta-card">
+              <span class="meta-card__label">Completion</span>
+              <strong id="completionLabel">0%</strong>
+            </div>
+          </div>
+        </div>
+        <section class="hero__panel" aria-labelledby="overviewTitle">
+          <div class="panel-heading">
+            <p class="section-kicker">Routine overview</p>
+            <h2 id="overviewTitle">What needs attention today?</h2>
+          </div>
+          <div class="stat-grid" aria-label="Daily care summary">
+            <article class="stat-card stat-card--warm">
+              <span>Pending</span>
+              <strong id="pendingCount">0</strong>
+            </article>
+            <article class="stat-card stat-card--mint">
+              <span>Completed</span>
+              <strong id="completedCount">0</strong>
+            </article>
+            <article class="stat-card stat-card--peach">
+              <span>Total tasks</span>
+              <strong id="totalCount">0</strong>
+            </article>
+          </div>
+          <div class="progress-panel" aria-label="Daily progress">
+            <div class="progress-panel__labels">
+              <span>Daily progress</span>
+              <strong id="progressText">0 of 0 complete</strong>
+            </div>
+            <div class="progress-bar" aria-hidden="true">
+              <div class="progress-bar__fill" id="progressFill"></div>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main class="dashboard">
+        <section class="composer" aria-labelledby="composerTitle">
+          <div class="panel-heading">
+            <p class="section-kicker">Add a routine</p>
+            <h2 id="composerTitle">Create a daily care task</h2>
+          </div>
+          <form class="task-form" id="taskForm">
+            <label>
+              Task name
+              <input
+                type="text"
+                id="taskTitle"
+                name="taskTitle"
+                placeholder="Ex: Refill fresh water"
+                maxlength="60"
+                required
+              />
+            </label>
+            <label>
+              Pet
+              <input
+                type="text"
+                id="taskPet"
+                name="taskPet"
+                placeholder="Ex: Luna"
+                maxlength="30"
+                required
+              />
+            </label>
+            <label>
+              Category
+              <select id="taskCategory" name="taskCategory">
+                <option value="Feeding">Feeding</option>
+                <option value="Hydration">Hydration</option>
+                <option value="Hygiene">Hygiene</option>
+                <option value="Wellness">Wellness</option>
+                <option value="Play">Play</option>
+              </select>
+            </label>
+            <label class="time-field">
+              Time
+              <div class="time-input-wrap">
+                <input type="time" id="taskTime" name="taskTime" required />
+                <span class="time-input-icon" aria-hidden="true">Time</span>
+              </div>
+            </label>
+            <button type="submit" class="button button--primary">
+              Add daily task
+            </button>
+          </form>
+        </section>
+
+        <section class="task-board" aria-labelledby="taskBoardTitle">
+          <div class="task-board__top">
+            <div class="panel-heading">
+              <p class="section-kicker">Today's list</p>
+              <h2 id="taskBoardTitle">Daily care tasks</h2>
+            </div>
+            <div
+              class="filter-group"
+              role="toolbar"
+              aria-label="Filter tasks by status"
+            >
+              <button class="filter-chip is-active" data-filter="all" type="button">
+                All
+              </button>
+              <button class="filter-chip" data-filter="pending" type="button">
+                Pending
+              </button>
+              <button class="filter-chip" data-filter="done" type="button">
+                Completed
+              </button>
+            </div>
+          </div>
+
+          <ul class="task-list" id="taskList" aria-live="polite"></ul>
+          <p class="empty-state" id="emptyState" hidden>
+            No tasks match this view right now.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <template id="taskTemplate">
+      <li class="task-card">
+        <div class="task-card__main">
+          <button
+            class="task-check"
+            type="button"
+            aria-label="Mark task as complete"
+          ></button>
+          <div class="task-card__content">
+            <div class="task-card__row">
+              <h3 class="task-card__title"></h3>
+              <span class="task-card__badge"></span>
+            </div>
+            <p class="task-card__meta"></p>
+          </div>
+        </div>
+        <button class="task-delete" type="button" aria-label="Delete task">
+          Remove
+        </button>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>

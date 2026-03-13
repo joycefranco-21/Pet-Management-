@@ -1,6 +1,6 @@
 ---
 name: Pet-Management-
-description: Build or refine the Pet Management app's frontend interfaces, components, pages, and visual system in HTML, CSS, and JavaScript. Use when Codex needs to design or improve pet registration, daily task management, routine tracking, mood log flows, or the overall UI direction with distinctive, production-grade quality, accessible interactions, responsive layouts, and a cute, modern pet-care aesthetic that avoids generic AI-looking output.
+description: Build or refine the Pet Management app's frontend interfaces, components, pages, and visual system in HTML, CSS, and JavaScript. The application must work well in both mobile and desktop. Use when Codex needs to design or improve pet registration, daily task management, routine tracking, mood log flows, or the overall UI direction with distinctive, production-grade quality, accessible interactions, responsive layouts, and a cute, modern pet-care aesthetic that avoids generic AI-looking output.
 ---
 
 # Pet Management Frontend
@@ -33,7 +33,7 @@ Keep the implementation production-minded:
 - Use semantic HTML structure
 - Preserve keyboard accessibility and visible focus states
 - Make controls easy to understand and operate
-- Ensure layouts work well on mobile and desktop
+- Ensure responsive layouts work well on mobile and desktop
 - Keep components visually consistent across screens
 
 When refining screens or components, improve both aesthetics and usability together. Do not treat styling as separate from task clarity, interaction feedback, or accessibility.
